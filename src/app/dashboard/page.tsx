@@ -1,5 +1,5 @@
 "use client";
-import { SiteHeader } from "@/components/site-header";
+import { SiteHeader } from "@/components/layout/site-header";
 
 import { Header } from "@/components/layout/header";
 import { Main } from "@/components/layout/main";
