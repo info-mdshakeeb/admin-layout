@@ -15,6 +15,9 @@ export const env = createEnv({
     GOOGLE_CLIENT_SECRET: z.string().min(1),
     GITHUB_CLIENT_ID: z.string().min(1),
     GITHUB_CLIENT_SECRET: z.string().min(1),
+
+    NODEMAILER_USER: z.email(),
+    NODEMAILER_APP_PASSWORD: z.string().min(1),
   },
 
   /**
@@ -40,6 +43,8 @@ export const env = createEnv({
     GOOGLE_CLIENT_SECRET: process.env.GOOGLE_CLIENT_SECRET,
     GITHUB_CLIENT_ID: process.env.GITHUB_CLIENT_ID,
     GITHUB_CLIENT_SECRET: process.env.GITHUB_CLIENT_SECRET,
+    NODEMAILER_USER: process.env.NODEMAILER_USER,
+    NODEMAILER_APP_PASSWORD: process.env.NODEMAILER_APP_PASSWORD,
 
     // Client
     // NEXT_PUBLIC_SERVER_FILE_UPLOAD_URL:
