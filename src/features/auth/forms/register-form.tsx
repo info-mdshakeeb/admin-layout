@@ -18,6 +18,7 @@ import { Input } from "@/components/ui/input";
 import { PasswordInput } from "@/components/ui/password-input";
 import { authClient } from "@/lib/auth-client";
 import { IconBrandGithub, IconBrandGooglePlay } from "@tabler/icons-react";
+import { toast } from "sonner";
 
 const registerFormSchema = z.object({
   name: z
@@ -46,11 +47,22 @@ export function RegisterForm({}: { callbackUrl?: string }) {
   });
 
   const onSubmit = async (values: RegisterFormValues) => {
-    await authClient.signUp.email({
-      email: values.email,
-      name: values.name,
-      password: values.password,
-    });
+    await authClient.signUp.email(
+      {
+        email: values.email,
+        name: values.name,
+        password: values.password,
+      },
+      {
+        onError: (error) => {
+          toast.error(error.error.message);
+        },
+        onSuccess: () => {
+          toast.success("Account created successfully");
+          form.reset();
+        },
+      }
+    );
   };
   const { isSubmitting } = form.formState;
 

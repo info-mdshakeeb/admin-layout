@@ -8,6 +8,9 @@ export const auth = betterAuth({
   emailAndPassword: {
     enabled: true,
   },
+  // rateLimit: {
+  //   storage: "database"
+  // },
   session: {
     cookieCache: {
       enabled: true,

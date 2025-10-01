@@ -48,6 +48,9 @@ export function LoginForm({}: { callbackUrl?: string }) {
         onError: (error) => {
           toast.error(error.error.message);
         },
+        onSuccess: () => {
+          toast.success("Logged in successfully!");
+        },
       }
     );
   };
