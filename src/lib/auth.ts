@@ -1,4 +1,5 @@
 
+import { env } from "@/env";
 import { client } from "@/lib/db";
 import { betterAuth } from "better-auth";
 import { mongodbAdapter } from "better-auth/adapters/mongodb";
@@ -11,6 +12,16 @@ export const auth = betterAuth({
   // rateLimit: {
   //   storage: "database"
   // },
+  socialProviders: {
+    github: {
+      clientId: env.GITHUB_CLIENT_ID,
+      clientSecret: env.GITHUB_CLIENT_SECRET,
+    },
+    google: {
+      clientId: env.GOOGLE_CLIENT_ID,
+      clientSecret: env.GOOGLE_CLIENT_SECRET,
+    }
+  },
   session: {
     cookieCache: {
       enabled: true,

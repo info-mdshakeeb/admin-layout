@@ -17,8 +17,8 @@ import {
 import { Input } from "@/components/ui/input";
 import { PasswordInput } from "@/components/ui/password-input";
 import { authClient } from "@/lib/auth-client";
-import { IconBrandGithub, IconBrandGooglePlay } from "@tabler/icons-react";
 import { toast } from "sonner";
+import { SocialAuthButtons } from "../components/social-auth-buttons";
 
 const registerFormSchema = z.object({
   name: z
@@ -160,15 +160,9 @@ export function RegisterForm({}: { callbackUrl?: string }) {
             />
             <span className="relative bg-background px-2">Or</span>
           </div>
+
           <div className="grid gap-4 sm:grid-cols-2">
-            <Button variant="outline" type="button" className="w-full">
-              <IconBrandGooglePlay size={18} />
-              Continue with Google
-            </Button>
-            <Button variant="outline" type="button" className="w-full">
-              <IconBrandGithub size={18} />
-              Continue with GitHub
-            </Button>
+            <SocialAuthButtons />
           </div>
         </fieldset>
       </form>
