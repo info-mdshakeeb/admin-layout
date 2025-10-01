@@ -4,11 +4,12 @@ import { z } from "zod";
 export const env = createEnv({
   server: {
     BETTER_AUTH_SECRET: z.string(),
-    BETTER_AUTH_URL: z.string().url(),
+    BETTER_AUTH_URL: z.url(),
     NODE_ENV: z
       .enum(["development", "test", "production"])
       .default("development"),
-    MONGODB_URI: z.string().min(1)
+    MONGODB_URI: z.string().min(1),
+    ARCJET_API_KEY: z.string().min(1),
   },
 
   /**
@@ -29,6 +30,7 @@ export const env = createEnv({
     BETTER_AUTH_URL: process.env.BETTER_AUTH_URL,
     NODE_ENV: process.env.NODE_ENV,
     MONGODB_URI: process.env.MONGODB_URI,
+    ARCJET_API_KEY: process.env.ARCJET_API_KEY,
 
     // Client
     // NEXT_PUBLIC_SERVER_FILE_UPLOAD_URL:
